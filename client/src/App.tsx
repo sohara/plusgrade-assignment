@@ -47,15 +47,15 @@ function TableRow({ row }: { row: ReservationProduct }) {
 
   return (
     <>
-      <tr className="border-b border-gray-300" key={row.reservation_uuid}>
+      <tr
+        className="border-b border-gray-300 hover:cursor-pointer"
+        key={row.reservation_uuid}
+        onClick={() => {
+          setShowDetail(!showDetail);
+        }}
+      >
         <td className="flex flex-row">
-          <button
-            onClick={() => {
-              setShowDetail(!showDetail);
-            }}
-          >
-            <ChevronRigth open={showDetail} />
-          </button>{" "}
+          <ChevronRigth open={showDetail} />
           {row.reservation_uuid}
         </td>
         <td>{row.numberActiveCharges}</td>
